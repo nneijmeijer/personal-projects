@@ -52,12 +52,14 @@ public class Input {
 				}
 				board.filterValues();
 				board.findSingles();
+				System.out.println(board.toString());
 				if (board.cells.equals(previous)) {
 					changed = false;
 				}
 			}
 			changed = true;
 			board.findPatterns();
+			System.out.println(board.toString());
 			if (board.cells.equals(previous)) {
 				changed = false;
 			}

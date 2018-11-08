@@ -1,6 +1,7 @@
 package boardObj;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A grouping is a set of nine Cells that once the program has finished executing will only have one
@@ -78,10 +79,13 @@ public abstract class Grouping
 			{
 				if(j!=i)
 				{
-					if(occurances.get(i).equals(occurances.get(j)))
+					if(occurances.get(i).containsAll(occurances.get(j)))
 					{
+						if(occurances.get(j).size() !=1)
+						{
 						count++;
 						matches.add(j+1);
+						}
 					}
 				}
 			}			
@@ -89,11 +93,9 @@ public abstract class Grouping
 			{
 				for(int j = 0; j < occurances.get(i).size(); j++)
 				{
-					values.get(occurances.get(i).get(j)).value.clear();
-					for(int g = 0 ; g < matches.size() ; g++)
-						{
-						values.get(occurances.get(i).get(j)).value.add(matches.get(g));
-						}
+					ArrayList<Integer> numsToRemove = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6,7,8,9));				
+					numsToRemove.removeAll(matches);
+					values.get(occurances.get(i).get(j)).value.removeAll(numsToRemove);						
 				}
 			}
 		}
