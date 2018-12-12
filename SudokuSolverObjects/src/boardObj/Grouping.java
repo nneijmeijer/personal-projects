@@ -95,7 +95,7 @@ public abstract class Grouping
 				{
 					ArrayList<Integer> numsToRemove = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6,7,8,9));				
 					numsToRemove.removeAll(matches);
-					values.get(occurances.get(i).get(j)).value.removeAll(numsToRemove);						
+					values.get(occurances.get(i).get(j)).value.removeAll(numsToRemove	);						
 				}
 			}
 		}
