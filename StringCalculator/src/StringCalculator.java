@@ -3,7 +3,13 @@ public class StringCalculator {
 
 	public static int[] stringToInt(String numbers)
 	{		
-		String[] splitNumbers = numbers.replaceAll("\n", "").split(",");
+		String delimeter = ",";
+		if(numbers.startsWith("//"))
+		{
+			delimeter = "\\"+numbers.substring(numbers.indexOf("//")+2, numbers.indexOf("\n"));
+			numbers = numbers.substring(numbers.indexOf("\n"));
+		}
+		String[] splitNumbers = numbers.replaceAll("\n", "").split(delimeter);
 		int[] results = new int[splitNumbers.length];
 		for(int i =0; i < splitNumbers.length; i ++)
 		{
