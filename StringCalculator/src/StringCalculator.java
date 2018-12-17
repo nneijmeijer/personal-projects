@@ -2,12 +2,12 @@
 public class StringCalculator {
 
 	public static int[] stringToInt(String numbers)
-	{
-		String[] splitNumbers = numbers.split(",");
+	{		
+		String[] splitNumbers = numbers.replaceAll("\n", "").split(",");
 		int[] results = new int[splitNumbers.length];
 		for(int i =0; i < splitNumbers.length; i ++)
 		{
-			results[i] = Integer.parseInt(splitNumbers[i]);
+			results[i] = Integer.parseInt(splitNumbers[i]);			
 		}
 		
 		return results;
