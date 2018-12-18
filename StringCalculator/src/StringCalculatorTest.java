@@ -35,6 +35,14 @@ class StringCalculatorTest {
 	}
 	
 	@Test
+	void testMultipleDelimeter() {
+		int test = StringCalculator.add("//$,@\n1$2@3");
+		assertEquals(6, test);
+		test = StringCalculator.add("//abc>,s7g\n1abc>2s7g3abc>s7g21");
+		assertEquals(27, test);
+	}
+	
+	@Test
 	void testNegative() {
 		int test = StringCalculator.add("//;\n1;-3;-4");
 		assertEquals(-1, test);

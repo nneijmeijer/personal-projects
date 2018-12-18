@@ -4,13 +4,17 @@ public class StringCalculator {
 	public static int[] stringToInt(String numbers) {
 		String delimeter = ",";
 		if (numbers.startsWith("//")) {
-			delimeter = "\\Q" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))+"\\E";
+			delimeter = ("\\Q" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))+"\\E").replaceAll(",", "\\\\E|\\\\Q");
+			//delimeter = (numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))).replaceAll(",", "|");
 			numbers = numbers.substring(numbers.indexOf("\n"));
 		}
 		String[] splitNumbers = numbers.replaceAll("\n", "").split(delimeter);
-		int[] results = new int[splitNumbers.length];
+		int[] results = new int[splitNumbers.length];		
 		for (int i = 0; i < splitNumbers.length; i++) {
+			if(!splitNumbers[i].equals(""))
+			{
 			results[i] = Integer.parseInt(splitNumbers[i]);
+			}
 		}
 
 		return results;
