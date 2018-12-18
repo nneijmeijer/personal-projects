@@ -1,19 +1,19 @@
+import java.util.Scanner;
 
 public class StringCalculator {
 
 	public static int[] stringToInt(String numbers) {
 		String delimeter = ",";
 		if (numbers.startsWith("//")) {
-			delimeter = ("\\Q" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))+"\\E").replaceAll(",", "\\\\E|\\\\Q");
-			//delimeter = (numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))).replaceAll(",", "|");
+			delimeter = ("\\Q" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n")) + "\\E")
+					.replaceAll(",", "\\\\E|\\\\Q");
 			numbers = numbers.substring(numbers.indexOf("\n"));
 		}
 		String[] splitNumbers = numbers.replaceAll("\n", "").split(delimeter);
-		int[] results = new int[splitNumbers.length];		
+		int[] results = new int[splitNumbers.length];
 		for (int i = 0; i < splitNumbers.length; i++) {
-			if(!splitNumbers[i].equals(""))
-			{
-			results[i] = Integer.parseInt(splitNumbers[i]);
+			if (!splitNumbers[i].equals("")) {
+				results[i] = Integer.parseInt(splitNumbers[i]);
 			}
 		}
 
@@ -52,7 +52,15 @@ public class StringCalculator {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		String input = "";
+		while (!input.equals("quit")) {
+			System.out.println("Enter the string you wish to add, type \"quit\" to exit: ");
+			Scanner scanner = new Scanner(System.in);
+			input = scanner.nextLine();
+			if (!input.equals("quit")) {
+				System.out.println(StringCalculator.add(input));
+			}
+		}
 
 	}
 

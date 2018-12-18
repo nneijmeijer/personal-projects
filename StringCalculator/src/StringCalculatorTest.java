@@ -19,7 +19,7 @@ class StringCalculatorTest {
 		test = StringCalculator.add("6\n,3,\n4");
 		assertEquals(13, test);
 	}
-	
+
 	@Test
 	void testDelimeter() {
 		int test = StringCalculator.add("//;\n1;3;4");
@@ -33,7 +33,7 @@ class StringCalculatorTest {
 		test = StringCalculator.add("//5\n1525357");
 		assertEquals(13, test);
 	}
-	
+
 	@Test
 	void testMultipleDelimeter() {
 		int test = StringCalculator.add("//$,@\n1$2@3");
@@ -41,7 +41,7 @@ class StringCalculatorTest {
 		test = StringCalculator.add("//abc>,s7g\n1abc>2s7g3abc>s7g21");
 		assertEquals(27, test);
 	}
-	
+
 	@Test
 	void testNegative() {
 		int test = StringCalculator.add("//;\n1;-3;-4");
@@ -49,7 +49,7 @@ class StringCalculatorTest {
 		test = StringCalculator.add("//$\n-1$2$-3");
 		assertEquals(-1, test);
 	}
-	
+
 	@Test
 	void testCeiling() {
 		int test = StringCalculator.add("1,2,5000");
