@@ -35,4 +35,12 @@ class StringCalculatorTest {
 		test = StringCalculator.add("//$\n-1$2$-3");
 		assertEquals(-1, test);
 	}
+	
+	@Test
+	void testCeiling() {
+		int test = StringCalculator.add("1,2,5000");
+		assertEquals(3, test);
+		test = StringCalculator.add("6,3000,4");
+		assertEquals(10, test);
+	}
 }
