@@ -19,19 +19,40 @@ public class StringCalculator {
 		return results;
 	}
 	
-	public static int calculator(int[] numbers)
+	public static int calculator(int[] numbers) throws Exception
 	{
 		int result = 0;
+		String negatives = "Negatives are not allowed: ";
+		boolean negativeAppeared = false;
 		for(int i = 0; i < numbers.length ; i++)
 		{
-			result +=numbers[i];
+			if(numbers[i]>=0)
+			{
+			result +=numbers[i];		
+			}
+			else
+			{
+				negatives += numbers[i] + " ";
+				negativeAppeared = true;
+			}
 		}
+		if(negativeAppeared)
+		{
+			throw new Exception(negatives);
+		}
+		
 		return result;
 	}
 	
 	public static int add(String numbers)
 	{
-		return calculator(stringToInt(numbers));
+		int result = -1;
+		try {
+			result = calculator(stringToInt(numbers));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

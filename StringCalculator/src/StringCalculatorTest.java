@@ -27,4 +27,12 @@ class StringCalculatorTest {
 		test = StringCalculator.add("//$\n1$2$3");
 		assertEquals(6, test);
 	}
+	
+	@Test
+	void testNegative() {
+		int test = StringCalculator.add("//;\n1;-3;-4");
+		assertEquals(-1, test);
+		test = StringCalculator.add("//$\n-1$2$-3");
+		assertEquals(-1, test);
+	}
 }
