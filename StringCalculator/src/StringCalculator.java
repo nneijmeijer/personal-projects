@@ -4,7 +4,7 @@ public class StringCalculator {
 	public static int[] stringToInt(String numbers) {
 		String delimeter = ",";
 		if (numbers.startsWith("//")) {
-			delimeter = "\\" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"));
+			delimeter = "\\Q" + numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n"))+"\\E";
 			numbers = numbers.substring(numbers.indexOf("\n"));
 		}
 		String[] splitNumbers = numbers.replaceAll("\n", "").split(delimeter);

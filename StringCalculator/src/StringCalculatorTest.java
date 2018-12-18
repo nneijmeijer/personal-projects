@@ -26,6 +26,12 @@ class StringCalculatorTest {
 		assertEquals(8, test);
 		test = StringCalculator.add("//$\n1$2$3");
 		assertEquals(6, test);
+		test = StringCalculator.add("//***\n1***2***3");
+		assertEquals(6, test);
+		test = StringCalculator.add("//abc>\n1abc>2abc>3");
+		assertEquals(6, test);
+		test = StringCalculator.add("//5\n1525357");
+		assertEquals(13, test);
 	}
 	
 	@Test
@@ -42,5 +48,7 @@ class StringCalculatorTest {
 		assertEquals(3, test);
 		test = StringCalculator.add("6,3000,4");
 		assertEquals(10, test);
+		test = StringCalculator.add("603,3000,400,50");
+		assertEquals(1053, test);
 	}
 }
