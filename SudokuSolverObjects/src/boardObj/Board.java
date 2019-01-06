@@ -93,38 +93,15 @@ public class Board
 	/**
 	 * Finds every value that only occurs once in a grouping and sets the cell they occur in to that value
 	 */
-	public void findSingles()
+	public void filterSingles()
 	{
 		ArrayList<ArrayList<Integer>> finder;
 		for(int i = 0 ; i <9 ; i++)
 		{
-			finder = columns.get(i).findOccurances();
-			for(int j = 0; j < 9; j++)
-			{
-				if(finder.get(j).size()==1)
-				{
-					columns.get(i).values.get(finder.get(j).get(0)).value.clear();
-					columns.get(i).values.get(finder.get(j).get(0)).value.add(j+1);
-				}
-			}
-			finder = sections.get(i).findOccurances();
-			for(int j = 0; j < 9; j++)
-			{
-				if(finder.get(j).size()==1)
-				{
-					sections.get(i).values.get(finder.get(j).get(0)).value.clear();
-					sections.get(i).values.get(finder.get(j).get(0)).value.add(j+1);
-				}
-			}
-			finder = rows.get(i).findOccurances();
-			for(int j = 0; j < 9; j++)
-			{
-				if(finder.get(j).size()==1)
-				{
-					rows.get(i).values.get(finder.get(j).get(0)).value.clear();
-					rows.get(i).values.get(finder.get(j).get(0)).value.add(j+1);
-				}
-			}
+			columns.get(i).findSingles();
+			rows.get(i).findSingles();
+			sections.get(i).findSingles();
+			
 		}
 	}
 	

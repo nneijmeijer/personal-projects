@@ -102,6 +102,19 @@ public abstract class Grouping
 		this.findPointers();
 	}
 	
+	void findSingles()
+	{
+		ArrayList<ArrayList<Integer>> finder = findOccurances();
+		for(int j = 0; j < 9; j++)
+		{
+			if(finder.get(j).size()==1)
+			{
+				values.get(finder.get(j).get(0)).value.clear();
+				values.get(finder.get(j).get(0)).value.add(j+1);
+			}
+		}
+	}
+	
 	/**
 	 * A method that determines if all occurrences of a value in a grouping are also in another grouping
 	 * and if so, eliminates all other occurrences of that value in the other grouping,

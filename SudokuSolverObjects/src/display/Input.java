@@ -51,7 +51,7 @@ public class Input {
 					previous.add(new Cell(i.next()));
 				}
 				board.filterValues();
-				board.findSingles();
+				board.filterSingles();
 				System.out.println(board.toString());
 				if (board.cells.equals(previous)) {
 					changed = false;
