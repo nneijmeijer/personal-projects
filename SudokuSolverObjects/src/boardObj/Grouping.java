@@ -2,6 +2,7 @@ package boardObj;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * A grouping is a set of nine Cells that once the program has finished executing will only have one
@@ -102,6 +103,17 @@ public abstract class Grouping
 		this.findPointers();
 	}
 	
+	@Override
+	public String toString() {
+		String result = "";
+		for(Iterator<Cell> j =this.values.iterator();j.hasNext();)
+		{
+			result+=j.next().toString();
+			
+		}
+		return result;
+	}
+
 	void findSingles()
 	{
 		ArrayList<ArrayList<Integer>> finder = findOccurances();

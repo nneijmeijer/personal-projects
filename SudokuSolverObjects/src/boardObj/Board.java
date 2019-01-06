@@ -81,10 +81,8 @@ public class Board
 		String result = "";
 		for(Iterator<Row> i = rows.iterator(); i.hasNext(); )
 		{
-			for(Iterator<Cell> j = i.next().values.iterator();j.hasNext();)
-			{
-				result+= j.next().toString(); 
-			}
+			result+=i.next().toString();
+			
 			result+= "\n";
 		}
 		return result;		

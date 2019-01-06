@@ -79,6 +79,19 @@ public class Cell
 		
 	}
 	
+	/**
+	 * A constructor used to make a cell without groupings for testing purposes.
+	 * @param value 
+	 */
+	public Cell(int[] value)
+	{
+		this.value = new ArrayList<Integer>();
+		for(int i = 0; i < value.length;i++)
+		{
+			this.value.add(value[i]);
+		}
+	}
+	
 	public String toString()
 	{
 		String result = "[";		
